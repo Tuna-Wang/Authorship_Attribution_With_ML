@@ -42,18 +42,35 @@ It is hypothesized that BERT’s ability to capture semantic meaning and perform
 N-gram model is proven to be the least effective. Initial experiments with N-gram ranges of 1-3 yielded an accuracy of 0.57. Wright(2014) used n-gram to identify author of emails using the Enron email corpus, Wright tested 5 different sample size and n-grams ranging from 1 to 6 and found that longer n-grams (4-6) work best for small texts, while shorter ones (2-3) excel with larger texts. Inspired by Wright, different ranges of n-gram are tested, from 1-6. However, accuracy did not vary.
 
 ### 3. CNN
-→ Model structure
-The CNN model consists of 3 parallel branches, each branch is a combination of Conv → BatchNorm → ReLU → MaxPool, different kernel sizes were applied to capture different n-gram patterns. 
-→ Training hyperparameters:
-epochs - 20
-batch size - 16
-optimizer - ADAM
-base learning rate - 0.001
-early stopping patience - 3
-→ Regularization techniques:
-dropout (embedding: 0.3, main: 0.7)
-weight decay - 1e-4
-batch normalization
-early stopping (patience=3)
-→ 
+→ Model structure.  
+The CNN model consists of 3 parallel branches with kernel sizes [3,4,5], each branch follows Conv → BatchNorm → ReLU → MaxPool pipeline to capture different n-gram patterns (trigrams, 4-grams, 5-grams).
 
+→ Training hyperparameters:   
+epochs - 10. 
+batch size - 32  
+optimizer - ADAM  
+base learning rate - 0.001  
+early stopping patience - 3
+
+→ Regularization techniques:   
+dropout (embedding: 0.3, main: 0.7)  
+weight decay - 1e-4  
+batch normalization  
+early stopping (patience=3)
+
+→ Results
+|      | precision | recall | F1 Score |
+| :---   | :--- | :---: | ---: |
+|Bernard | 0.48 | 0.32 | 0.38 |
+|Humprey | 0.42 | 0.24 | 0.31 |
+|Jim | 0.60 | 0.82 | 0.69 |
+Overall: 0.56.   
+weighted avg: 0.52. 
+
+### Discussion over the low performance
+#### Data Constraints: Size and Imbalance.   
+The entire corpus contains only 991 lines. Authorship attribution models, especially complex deep learning architectures like BERT and CNNs, require substantially larger datasets to robustly learn subtle stylistic features. Furthermore, the inclusion of many very short lines (e.g., "Yes," "Goodbye") contributes little to stylistic analysis, effectively reducing the amount of meaningful training data.   
+The severe imbalance in line distribution (Jim: 506 vs. Humphrey: 267 vs. Bernard: 217) directly accounts for the disparity in performance. Jim, as the majority class, consistently achieved a salient performance (F1 score 0.70+) and a high recall rate across all models. This indicates a strong bias where the models are highly likely to predict Jim for an unknown line. 
+
+#### Shared Context and Register
+As dialogue from a single stage play, all text shares a common context (Whitehall politics) and operates within a high, formal, bureaucratic register. The characters are constantly engaged in discussing a specific, concentrated topic. It becomes challenging for the models to isolate true idiosyncratic stylistic markers from the common, domain-specific language that all three educated, professional characters used. 
