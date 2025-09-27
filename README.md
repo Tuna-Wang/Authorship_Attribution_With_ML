@@ -75,6 +75,9 @@ The severe imbalance in line distribution (Jim: 506 vs. Humphrey: 267 vs. Bernar
 #### Shared Context and Register
 As dialogue from a single stage play, all text shares a common context (Whitehall politics) and operates within a high, formal, bureaucratic register. The characters are constantly engaged in discussing a specific, concentrated topic. It becomes challenging for the models to isolate true idiosyncratic stylistic markers from the common, domain-specific language that all three educated, professional characters used.
 
+
+## Working on ...
+Transfer learning approach.
 ## References
 Jay, A., & Lynn, J.(2010). Yes, Prime Minister. Faber and Faber Limited.
 
