@@ -1,0 +1,34 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Workspace directory - contains temporary files, logs, models, results
+workspace/
+
+# Virtual environment
+aa/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# PyTorch model files (if you want to ignore saved models)
+*.pth
+*.pkl
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
