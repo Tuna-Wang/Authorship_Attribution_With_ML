@@ -73,4 +73,9 @@ The entire corpus contains only 991 lines. Authorship attribution models, especi
 The severe imbalance in line distribution (Jim: 506 vs. Humphrey: 267 vs. Bernard: 217) directly accounts for the disparity in performance. Jim, as the majority class, consistently achieved a salient performance (F1 score 0.70+) and a high recall rate across all models. This indicates a strong bias where the models are highly likely to predict Jim for an unknown line. 
 
 #### Shared Context and Register
-As dialogue from a single stage play, all text shares a common context (Whitehall politics) and operates within a high, formal, bureaucratic register. The characters are constantly engaged in discussing a specific, concentrated topic. It becomes challenging for the models to isolate true idiosyncratic stylistic markers from the common, domain-specific language that all three educated, professional characters used. 
+As dialogue from a single stage play, all text shares a common context (Whitehall politics) and operates within a high, formal, bureaucratic register. The characters are constantly engaged in discussing a specific, concentrated topic. It becomes challenging for the models to isolate true idiosyncratic stylistic markers from the common, domain-specific language that all three educated, professional characters used.
+
+## References
+Jay, A., & Lynn, J.(2010). Yes, Prime Minister. Faber and Faber Limited.
+
+Wright, D. (2014). Stylistics versus Statistics: A corpus linguistic approach to combining techniques in forensic authorship analysis using Enron emails (Doctoral dissertation, University of Leeds).
