@@ -1,10 +1,11 @@
+import os
+import re
+import csv
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
-import os
-import re
-import csv
+
 from sklearn.metrics import classification_report
 from utils.config import Config
 
@@ -295,8 +296,7 @@ class CNNModel(nn.Module):
         if hasattr(self, '_classes'):
             return self._classes
         else:
-            # Default fallback - should be set properly during training
-            return ['0', '1', '2']  # Placeholder
+            return ['0', '1', '2']  
     
     def set_classes(self, label_encoder):
         """Set the classes from label encoder after training"""
